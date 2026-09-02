@@ -738,17 +738,30 @@ body::before {
 .card-footer-deco {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
   padding-top: 10px;
+  border-top: 1px dashed rgba(229, 213, 197, 0.4);
+  pointer-events: none;
+  user-select: none;
 }
-.footer-sticker-purin { width: 50px; height: auto; opacity: 0.92; }
-.footer-sticker-hamster { width: 52px; height: auto; opacity: 0.9; }
-.footer-sticker-melody { width: 48px; height: auto; opacity: 0.92; }
-.footer-sticker-kuromi { width: 46px; height: auto; opacity: 0.92; }
-.footer-sticker-keroppi { width: 48px; height: auto; opacity: 0.92; }
-.footer-sticker-hk-standing { width: 48px; height: auto; opacity: 0.92; }
-.footer-sticker-cinna { width: 54px; height: auto; opacity: 0.92; }
+
+.card-footer-deco img {
+  height: clamp(38px, 9vw, 48px);
+  width: auto;
+  object-fit: contain;
+  opacity: 0.94;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
+}
+
+.footer-sticker-purin { height: 46px; width: auto; }
+.footer-sticker-hamster { height: 46px; width: auto; }
+.footer-sticker-melody { height: 46px; width: auto; }
+.footer-sticker-kuromi { height: 46px; width: auto; }
+.footer-sticker-keroppi { height: 46px; width: auto; }
+.footer-sticker-hk-standing { height: 48px; width: auto; }
+.footer-sticker-cinna { height: 46px; width: auto; }
 
 .layer-action-footer { margin-top: 24px; text-align: center; }
 
@@ -1332,10 +1345,30 @@ body::before {
 .outro-signature { font-family: var(--font-handwriting); font-size: clamp(1.8rem, 6vw, 2.25rem); font-weight: 700; color: var(--rose-600); margin-top: 18px; }
 
 /* STICKERS (TEXT-SAFE POSITIONS) */
-.deco-sticker { position: absolute; pointer-events: none; z-index: 10; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12)); }
-.box-corner-hk { top: -14px; left: -10px; width: clamp(48px, 12vw, 64px); height: auto; }
-.box-corner-melody { bottom: 8px; right: 6px; width: clamp(52px, 13vw, 70px); height: auto; }
-.letter-melody-corner { top: 14px; right: 14px; width: clamp(40px, 9vw, 52px); height: auto; }
+.deco-sticker {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+}
+.box-corner-hk {
+  top: 8px;
+  left: 8px;
+  width: clamp(42px, 10vw, 56px);
+  height: auto;
+}
+.box-corner-melody {
+  bottom: 8px;
+  right: 8px;
+  width: clamp(44px, 11vw, 58px);
+  height: auto;
+}
+.letter-melody-corner {
+  top: 12px;
+  right: 12px;
+  width: clamp(38px, 9vw, 48px);
+  height: auto;
+}
 
 .float-anim { animation: stickerFloat 3.2s infinite ease-in-out; }
 .float-anim-delayed { animation: stickerFloat 3.5s infinite ease-in-out 1.2s; }
