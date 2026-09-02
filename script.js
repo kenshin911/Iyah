@@ -803,9 +803,157 @@
   }
 
   function bindEasterEggs() {
-    if (DOM.rageBaitBtn) {
-      DOM.rageBaitBtn.addEventListener('click', () => {
-        showToast(RELATIONSHIP_DATA.easterEggs.rageBait.alertMessage);
+    bindWhackHamsterGame();
+  }
+
+  function bindWhackHamsterGame() {
+    const modal = document.getElementById('whackHamsterModal');
+    const closeBtn = document.getElementById('whackCloseBtn');
+    const claimBtn = document.getElementById('whackClaimMedalBtn');
+    const activeStage = document.getElementById('whackActiveStage');
+    const victoryStage = document.getElementById('whackVictoryStage');
+    const scoreCountEl = document.getElementById('whackScoreCount');
+    const gridEl = document.getElementById('whackGrid');
+    const triggerBtn = DOM.rageBaitBtn;
+
+    if (!modal || !gridEl) return;
+
+    let score = 0;
+    let spawnTimer = null;
+    let activeHoles = [];
+    let isGameRunning = false;
+
+    const hamsterImages = [
+      'assets/stickers/bad_gf_hamster.png',
+      'assets/stickers/good_girl_hamster.png',
+      'assets/stickers/hamster_evil.png',
+      'assets/stickers/hamster_laugh.png',
+      'assets/stickers/hamster_tongue.png'
+    ];
+
+    const hitPhrases = [
+      'Aray boi! 💥',
+      'Wag ako! 🐹',
+      'Kulit mo talaga! 😂',
+      'Bakit mo pinindot?! 😭',
+      'Lagot ka kay Nash! 😈',
+      'Ouch boi! 💢'
+    ];
+
+    // Build 9 holes
+    gridEl.innerHTML = '';
+    for (let i = 0; i < 9; i++) {
+      const hole = document.createElement('div');
+      hole.className = 'whack-hole';
+      hole.setAttribute('data-hole-idx', i);
+
+      const hamsterImg = document.createElement('img');
+      hamsterImg.className = 'whack-hamster';
+      hamsterImg.src = hamsterImages[i % hamsterImages.length];
+      hamsterImg.alt = 'Hamster';
+
+      const handleHit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!hamsterImg.classList.contains('up') || hamsterImg.classList.contains('hit')) return;
+
+        hamsterImg.classList.add('hit');
+        score++;
+        if (scoreCountEl) scoreCountEl.textContent = score;
+
+        // Sound & Floating Bubble
+        playSoftChime(600 + Math.random() * 200, 0.12);
+        const bubble = document.createElement('div');
+        bubble.className = 'whack-hit-bubble';
+        bubble.textContent = hitPhrases[Math.floor(Math.random() * hitPhrases.length)];
+        hole.appendChild(bubble);
+        setTimeout(() => bubble.remove(), 500);
+
+        setTimeout(() => {
+          hamsterImg.classList.remove('up', 'hit');
+        }, 150);
+
+        if (score >= 10) {
+          endGameWithVictory();
+        }
+      };
+
+      hamsterImg.addEventListener('click', handleHit);
+      hamsterImg.addEventListener('touchstart', handleHit, { passive: false });
+
+      hole.appendChild(hamsterImg);
+      gridEl.appendChild(hole);
+      activeHoles.push({ hole, img: hamsterImg });
+    }
+
+    function popRandomHamster() {
+      if (!isGameRunning || score >= 10) return;
+
+      const randomIdx = Math.floor(Math.random() * activeHoles.length);
+      const target = activeHoles[randomIdx];
+
+      if (!target.img.classList.contains('up')) {
+        target.img.src = hamsterImages[Math.floor(Math.random() * hamsterImages.length)];
+        target.img.classList.remove('hit');
+        target.img.classList.add('up');
+
+        const stayDuration = Math.max(650, 1100 - score * 35);
+        setTimeout(() => {
+          if (target.img.classList.contains('up')) {
+            target.img.classList.remove('up');
+          }
+        }, stayDuration);
+      }
+
+      const nextPopInterval = Math.max(500, 850 - score * 25);
+      spawnTimer = setTimeout(popRandomHamster, nextPopInterval);
+    }
+
+    function startGame() {
+      score = 0;
+      isGameRunning = true;
+      if (scoreCountEl) scoreCountEl.textContent = '0';
+      if (activeStage) activeStage.style.display = 'block';
+      if (victoryStage) victoryStage.style.display = 'none';
+      modal.style.display = 'flex';
+
+      activeHoles.forEach(h => h.img.classList.remove('up', 'hit'));
+      clearTimeout(spawnTimer);
+      spawnTimer = setTimeout(popRandomHamster, 400);
+      playSoftChime(523, 0.2);
+    }
+
+    function endGameWithVictory() {
+      isGameRunning = false;
+      clearTimeout(spawnTimer);
+      activeHoles.forEach(h => h.img.classList.remove('up', 'hit'));
+
+      if (activeStage) activeStage.style.display = 'none';
+      if (victoryStage) {
+        victoryStage.style.display = 'block';
+        createCelebrationParticles(victoryStage);
+      }
+      playSoftChime(587, 0.2);
+      setTimeout(() => playSoftChime(880, 0.35), 180);
+    }
+
+    function closeModal() {
+      isGameRunning = false;
+      clearTimeout(spawnTimer);
+      activeHoles.forEach(h => h.img.classList.remove('up', 'hit'));
+      modal.style.display = 'none';
+    }
+
+    if (triggerBtn) {
+      triggerBtn.addEventListener('click', startGame);
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+    if (claimBtn) {
+      claimBtn.addEventListener('click', () => {
+        closeModal();
+        showToast("👑 Trophy Claimed: Certified Makulit Girlfriend! HAHAHA ♡");
       });
     }
   }

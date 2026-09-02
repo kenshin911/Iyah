@@ -722,6 +722,41 @@
     </button>
   </aside>
 
+  <!-- Whack-A-Hamster Secret Mini-Game Modal -->
+  <div class="whack-modal-overlay" id="whackHamsterModal" style="display: none;" role="dialog" aria-modal="true">
+    <div class="whack-modal-card">
+      <button class="whack-modal-close" id="whackCloseBtn" aria-label="Close Game">✕</button>
+      
+      <!-- Stage 1: Game Active -->
+      <div id="whackActiveStage">
+        <div class="whack-alert-badge">🚨 MAKULIT GIRLFRIEND DETECTED! 🚨</div>
+        <h3 class="whack-title">Sabi nang 'wag i-click eh! 😭</h3>
+        <p class="whack-subtitle">Napakakulit mo talaga boi HAHAHA! Hulihin mo ang 10 runaway hamsters para ma-restore ang website:</p>
+        
+        <div class="whack-scoreboard">
+          <span class="whack-score-pill">🐹 Caught: <strong id="whackScoreCount">0</strong> / 10</span>
+        </div>
+
+        <!-- 3x3 Whack Grid -->
+        <div class="whack-grid" id="whackGrid">
+          <!-- 9 holes rendered dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Stage 2: Victory Award Screen -->
+      <div id="whackVictoryStage" style="display: none;">
+        <div class="whack-trophy-badge">👑 SECRET UNLOCKED! 👑</div>
+        <img src="assets/stickers/good_girl_hamster.png" alt="Winning Hamster" class="whack-victory-img">
+        <h3 class="whack-victory-title">CERTIFIED MAKULIT GIRLFRIEND OF THE YEAR!</h3>
+        <p class="whack-victory-desc">
+          Pinindot mo pa rin kahit bawal HAHAHA! Pero dahil nahuli mo silang lahat, forgiven ka na boi. Mahal na mahal pa rin kita kahit sobrang kulit mo! ♡
+        </p>
+        <button class="primary-btn" id="whackClaimMedalBtn">Claim Medal & Return</button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Toast Notification Modal -->
   <div class="toast-popup" id="toastPopup" role="alert" aria-live="polite">
     <div class="toast-content" id="toastMessage">Message</div>
