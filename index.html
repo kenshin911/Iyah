@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>For Iyah ♡ — 19th Monthsary Gift from Nash</title>
+  <meta name="description" content="A special interactive digital gift, explosion box, and scrapbook for Iyah on our 19th monthsary.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Audio Controls & Top Header -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <span class="gift-badge">
+        <span class="badge-sparkle">✨</span>
+        <span class="badge-text">For Iyah ♡ 19th Monthsary</span>
+      </span>
+    </div>
+    <div class="top-bar-right">
+      <button id="musicToggleBtn" class="pill-btn music-btn" aria-label="Toggle background sound">
+        <span class="music-label">Music: Off</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Deluxe Scrapbook Progress Ribbon -->
+  <nav id="ribbonNav" class="ribbon-nav" aria-label="Scrapbook Ribbon Navigation">
+    <div class="ribbon-scroll-container" id="ribbonTabsContainer">
+      <!-- Generated dynamically via JS -->
+    </div>
+  </nav>
+
+  <!-- Main Explosion Box Container -->
+  <main class="explosion-box-app" id="appContainer">
+    
+    <!-- ========================================================== -->
+    <!-- LAYER 0: THE UNOPENED GIFT BOX                             -->
+    <!-- ========================================================== -->
+    <section id="layer-0" class="box-layer active" data-layer-index="0">
+      <div class="gift-box-wrapper">
+        <div class="gift-box-card" id="giftBoxTrigger">
+          <img src="assets/stickers/hello_kitty_standing.png" alt="Hello Kitty" class="deco-sticker box-corner-hk float-anim">
+          <img src="assets/stickers/mymelody.png" alt="My Melody" class="deco-sticker box-corner-melody float-anim-delayed">
+
+          <!-- Box Top Lid with Satin Ribbon & Center Rosette -->
+          <div class="box-lid" id="boxLid">
+            <div class="box-ribbon-vertical"></div>
+            <div class="box-ribbon-horizontal"></div>
+            <div class="ribbon-knot" aria-hidden="true"></div>
+          </div>
+
+          <!-- Box Body -->
+          <div class="box-body">
+            <div class="gift-tag">
+              <span class="tag-to">For my favorite person, <strong>Iyah ♡</strong></span>
+              <span class="tag-from">iloveyouuu <strong></strong></span>
+              <span class="tag-occasion"> Happy 19th Monthsary </span>
+            </div>
+
+            <div class="box-open-prompt">
+              <button class="primary-btn pulse-anim" id="openGiftBtn" aria-label="Open the gift box">
+                Open Gift Box
+              </button>
+              <p class="subtle-hint">Turn your volume up a bit for the best experience lovelove ♡</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- LAYER 1: CHAPTER 1 — HOW IT STARTED (ROBLOX GENESIS)      -->
+    <!-- ========================================================== -->
+    <section id="layer-1" class="box-layer locked" data-layer-index="1">
+      <div class="scrapbook-card collage-card">
+        <div class="washi-tape tape-top-center"></div>
+        
+        <div class="layer-header-rich">
+          <div class="header-left">
+            <span class="layer-pill">Chapter 01</span>
+            <span class="layer-date" id="c1-date">November 2, 2024</span>
+          </div>
+          <div class="header-stamp-tag">Genesis Memory</div>
+        </div>
+
+        <div class="card-intro-block">
+          <h2 class="layer-title" id="c1-title">How It All Started</h2>
+          <p class="layer-subtitle" id="c1-subtitle">MOA Seaside Roblox</p>
+        </div>
+
+        <div class="collage-grid-layout">
+          <!-- Swipeable Polaroid Carousel Frame -->
+          <div class="polaroid-frame polaroid-carousel tilt-left" id="c1-carousel-frame">
+            <div class="polaroid-pin"></div>
+            
+            <div class="polaroid-img-box">
+              <img id="c1-photo" src="assets/photos/roblox1.png" alt="Roblox Genesis Memory" loading="lazy">
+            </div>
+            <div class="polaroid-caption" id="c1-caption">
+              November 2, 2024 — Wala me makita na pic natin non sa MOA Seaside nung first meet natin e kaya yan nalang.
+            </div>
+
+            <!-- Carousel Nav Controls -->
+            <div class="polaroid-carousel-controls">
+              <button class="polaroid-nav-btn prev-btn" id="c1-prev-btn" aria-label="Previous Photo">‹</button>
+              <div class="polaroid-dots" id="c1-dots">
+                <span class="p-dot active"></span>
+                <span class="p-dot"></span>
+              </div>
+              <button class="polaroid-nav-btn next-btn" id="c1-next-btn" aria-label="Next Photo">›</button>
+            </div>
+          </div>
+
+          <!-- Memory Text & Sticky Note -->
+          <div class="memory-side-panel">
+            <div class="memory-ticket-badge">
+              <span class="ticket-label">SERVER ENTRY</span>
+              <strong class="ticket-val">MOA Seaside &bull; Nov 2, 2024</strong>
+              <small class="ticket-sub">Where our story quietly started</small>
+            </div>
+
+            <div class="journal-text-block" id="c1-body">
+              <!-- Rendered from data.js -->
+            </div>
+
+            <div class="sticky-note-snippet">
+              <span class="sticky-pin">📌</span>
+              <p>Sino mag-aakala na sa Roblox pala kita makikilala? Best random game ever.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer-deco">
+          <img src="assets/stickers/pompompurin.png" alt="Pompompurin" class="footer-sticker-purin wobble-anim">
+        </div>
+
+        <div class="layer-action-footer">
+          <button class="next-layer-btn" data-target-layer="2">
+            Continue
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- LAYER 2: CHAPTER 2 — CASE FILE: YOU LIKED ME FIRST         -->
+    <!-- ========================================================== -->
+    <section id="layer-2" class="box-layer locked" data-layer-index="2">
+      <div class="scrapbook-card dossier-theme">
+        <div class="dossier-folder-tab">
+          <span>CONFIDENTIAL DOSSIER &bull; FILE #0202</span>
+        </div>
+        
+        <div class="dossier-stamp">CONFIRMED 😭</div>
+
+        <div class="layer-header">
+          <span class="layer-pill kraft-pill">Chapter 02</span>
+          <span class="case-number">EVIDENCE ARCHIVE</span>
+        </div>
+
+        <h2 class="dossier-title">"YOU LIKED ME FIRST LOVE WAG MO NA DENY HAHAHAHA"</h2>
+        <p class="dossier-subtitle">The Official Meta AI Investigation Dossier</p>
+
+        <div class="dossier-grid">
+          <div class="dossier-item">
+            <span class="dossier-label">PRIMARY SUBJECT</span>
+            <span class="dossier-val">Iyah</span>
+          </div>
+          <div class="dossier-item">
+            <span class="dossier-label">LEAD INVESTIGATOR</span>
+            <span class="dossier-val">Nash</span>
+          </div>
+          <div class="dossier-item full-width">
+            <span class="dossier-label">SUSPECTED ACTIVITY</span>
+            <p class="dossier-text">Catching genuine feelings for Nash way earlier than publicly admitted.</p>
+          </div>
+          <div class="dossier-item full-width">
+            <span class="dossier-label">KEY EVIDENCE EXHIBIT A</span>
+            <p class="dossier-text">A curious consultation with Meta AI asking what to do when catching feelings for a friend while still healing from past trauma.</p>
+          </div>
+          <div class="dossier-item full-width highlight-item">
+            <span class="dossier-label">THE PLOT TWIST</span>
+            <p class="dossier-text">I didn't even know during that time. I only found out after we were already in a relationship because I had access to your account HAHAHA!</p>
+          </div>
+        </div>
+
+        <div class="verdict-banner">
+          <p class="verdict-heading">⚖️ OFFICIAL VERDICT</p>
+          <p class="verdict-body">Case closed, Love. You liked me first. Tanggapin mo na boi HAHAHA ❤️</p>
+          <p class="verdict-sub">And honestly? I'm so grateful you did.</p>
+        </div>
+
+        <div class="card-footer-deco">
+          <img src="assets/stickers/kuromi.png" alt="Kuromi" class="footer-sticker-kuromi" title="Kuromi Investigating">
+          <img src="assets/stickers/hamster_evil.png" alt="Plotting Hamster" class="footer-sticker-hamster" title="Investigator Nash's plotting face">
+        </div>
+
+        <div class="layer-action-footer">
+          <button class="next-layer-btn" data-target-layer="3">
+            Continue
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- LAYER 3: CHAPTER 3 — FIRST TIME SEEING EACH OTHER IRL      -->
+    <!-- ========================================================== -->
+    <section id="layer-3" class="box-layer locked" data-layer-index="3">
+      <div class="scrapbook-card collage-card">
+        <div class="washi-tape tape-top-right"></div>
+
+        <div class="layer-header-rich">
+          <div class="header-left">
+            <span class="layer-pill">Chapter 03</span>
+            <span class="layer-date" id="c3-date">December 7, 2025</span>
+          </div>
+          <div class="header-stamp-tag">First IRL Date</div>
+        </div>
+
+        <div class="card-intro-block">
+          <h2 class="layer-title" id="c3-title">First Time Seeing You In Real Life</h2>
+          <p class="layer-subtitle" id="c3-subtitle">When the screen finally became real.</p>
+        </div>
+
+        <div class="collage-grid-layout">
+          <!-- Polaroid -->
+          <div class="polaroid-frame tilt-right">
+            <div class="polaroid-pin"></div>
+            <div class="polaroid-img-box">
+              <img id="c3-photo" src="assets/photos/first_irl.jpg" alt="First IRL Meeting" loading="lazy">
+            </div>
+            <div class="polaroid-caption" id="c3-caption">
+              December 7, 2025 — first meet pero wala us pic so yan nalang.
+            </div>
+          </div>
+
+          <!-- Memory Text & Quote -->
+          <div class="memory-side-panel">
+            <div class="journal-text-block" id="c3-body">
+              <!-- Rendered from data.js -->
+            </div>
+
+            <div class="memory-card-quote">
+              <span class="quote-symbol">“</span>
+              <p>Seeing you in person for the first time made all the waiting and distance worth it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer-deco">
+          <img src="assets/stickers/mymelody.png" alt="My Melody" class="footer-sticker-melody float-anim">
+        </div>
+
+        <div class="layer-action-footer">
+          <button class="next-layer-btn" data-target-layer="4">
+            Continue
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- LAYER 4: CHAPTER 4 — THE SIX-DAY SCRAPBOOK (CENTERPIECE)   -->
+    <!-- ========================================================== -->
+    <section id="layer-4" class="box-layer locked" data-layer-index="4">
+      <div class="scrapbook-card multi-page-scrapbook">
+        <div class="scrapbook-binder-rings">
+          <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="layer-header-rich">
+          <div class="header-left">
+            <span class="layer-pill">Chapter 04</span>
+            <span class="layer-date">May 28 – June 2, 2026</span>
+          </div>
+          <div class="header-stamp-tag">Laoag to Cavite</div>
+        </div>
+
+        <h2 class="layer-title">The Six Unforgettable Days</h2>
+        <p class="layer-subtitle">Laoag, Ilocos Norte ✈️ Cavite for Graduation</p>
+        <p class="scrapbook-intro">Those six days together were genuinely among the best days of my life. Explore our mini-diary pages below:</p>
+
+        <!-- Sub-Page Tabs -->
+        <div class="scrapbook-tabs-nav" id="scrapbookTabsNav" role="tablist">
+          <button class="scrap-tab active" data-tab-id="day1" role="tab" aria-selected="true">1. Arrival</button>
+          <button class="scrap-tab" data-tab-id="day2" role="tab" aria-selected="false">2. School & Grad</button>
+          <button class="scrap-tab" data-tab-id="day3" role="tab" aria-selected="false">3. Mall & Squishies</button>
+          <button class="scrap-tab" data-tab-id="day4" role="tab" aria-selected="false">4. Food Park Date</button>
+          <button class="scrap-tab" data-tab-id="day5" role="tab" aria-selected="false">5. Adobo Kitchen</button>
+          <button class="scrap-tab" data-tab-id="day6" role="tab" aria-selected="false">6. Quiet Reflection</button>
+        </div>
+
+        <!-- Contents -->
+        <div class="scrapbook-pages-container" id="scrapbookPages">
+          
+          <!-- Day 1 -->
+          <div class="scrap-page active" id="scrap-page-day1">
+            <div class="day-page-header">
+              <h3 class="page-headline">She's Finally Here</h3>
+              <span class="page-date-badge">May 28, 2026 &bull; Manila Arrival</span>
+            </div>
+            
+            <!-- Swipeable Polaroid Media Carousel (Photo & Video) -->
+            <div class="polaroid-frame polaroid-carousel" id="day1-carousel-frame">
+              <div class="polaroid-img-box" id="day1-media-box">
+                <img id="day1-photo" src="assets/photos/arrival.jpg" alt="Arrival Day 1" loading="lazy">
+              </div>
+              <div class="polaroid-caption" id="day1-caption">
+                Laoag to Manila to Cavite. You were finally in front of me.
+              </div>
+
+              <!-- Carousel Nav Controls -->
+              <div class="polaroid-carousel-controls">
+                <button class="polaroid-nav-btn prev-btn" id="day1-prev-btn" aria-label="Previous Media">‹</button>
+                <div class="polaroid-dots" id="day1-dots">
+                  <span class="p-dot active"></span>
+                  <span class="p-dot"></span>
+                </div>
+                <button class="polaroid-nav-btn next-btn" id="day1-next-btn" aria-label="Next Media">›</button>
+              </div>
+            </div>
+
+            <p class="page-desc">You arrived in Manila, I picked you up, and we went home together. It was the first time I got to introduce someone to my family as my girlfriend. That feeling was unmatched.</p>
+          </div>
+
+          <!-- Day 2 -->
+          <div class="scrap-page" id="scrap-page-day2">
+            <div class="day-page-header">
+              <h3 class="page-headline">Graduation Prep</h3>
+              <span class="page-date-badge">May 29 2026 &bull; Graduation Day</span>
+            </div>
+
+            <!-- Swipeable Polaroid Media Carousel (Photo & Video) -->
+            <div class="polaroid-frame polaroid-carousel" id="day2-carousel-frame">
+              <div class="polaroid-img-box" id="day2-media-box">
+                <img id="day2-photo" src="assets/photos/school.jpg" alt="School & Graduation Tickets" loading="lazy">
+              </div>
+              <div class="polaroid-caption" id="day2-caption">
+                Wala us maayos na pic nung Grad sayanggg huhuhu.
+              </div>
+
+              <!-- Carousel Nav Controls -->
+              <div class="polaroid-carousel-controls">
+                <button class="polaroid-nav-btn prev-btn" id="day2-prev-btn" aria-label="Previous Media">‹</button>
+                <div class="polaroid-dots" id="day2-dots">
+                  <span class="p-dot active"></span>
+                  <span class="p-dot"></span>
+                </div>
+                <button class="polaroid-nav-btn next-btn" id="day2-next-btn" aria-label="Next Media">›</button>
+              </div>
+            </div>
+
+            <p class="page-desc">Going to my school together to get tickets for graduation. It felt so surreal having you beside me during such an important milestone.</p>
+          </div>
+
+          <!-- Day 3 -->
+          <div class="scrap-page" id="scrap-page-day3">
+            <div class="day-page-header">
+              <h3 class="page-headline">Mall Day, Squishies & Groceries</h3>
+              <span class="page-date-badge">May 2026 &bull; Grocery Run</span>
+            </div>
+
+            <!-- Swipeable Polaroid Media Carousel (Photo & Video) -->
+            <div class="polaroid-frame polaroid-carousel" id="day3-carousel-frame">
+              <div class="polaroid-img-box" id="day3-media-box">
+                <img id="day3-photo" src="assets/photos/mall.jpg" alt="Mall Day & Squishies" loading="lazy">
+              </div>
+              <div class="polaroid-caption" id="day3-caption">
+                Buying you squishies & doing mundane grocery runs.
+              </div>
+
+              <!-- Carousel Nav Controls -->
+              <div class="polaroid-carousel-controls">
+                <button class="polaroid-nav-btn prev-btn" id="day3-prev-btn" aria-label="Previous Media">‹</button>
+                <div class="polaroid-dots" id="day3-dots">
+                  <span class="p-dot active"></span>
+                  <span class="p-dot"></span>
+                </div>
+                <button class="polaroid-nav-btn next-btn" id="day3-next-btn" aria-label="Next Media">›</button>
+              </div>
+            </div>
+
+            <p class="page-desc">Just walking around the mall, buying squishies and cute things you liked, and pushing a grocery cart together. Simple, ordinary couple things that meant everything to me.</p>
+          </div>
+
+          <!-- Day 4 -->
+          <div class="scrap-page" id="scrap-page-day4">
+            <div class="day-page-header">
+              <h3 class="page-headline">Motorcycle Ride & Food Park Date</h3>
+              <span class="page-date-badge">May 2026 &bull; Dabilan / Hermosa Dabilan</span>
+            </div>
+
+            <!-- Swipeable Polaroid Media Carousel (1 Photo + 3 Videos) -->
+            <div class="polaroid-frame polaroid-carousel" id="day4-carousel-frame">
+              <div class="polaroid-img-box" id="day4-media-box">
+                <img id="day4-photo" src="assets/photos/foodpark.jpg" alt="Food Park Date" loading="lazy">
+              </div>
+              <div class="polaroid-caption" id="day4-caption">
+                Riding together near Dabilan / Hermosa Dabilan.
+              </div>
+
+              <!-- Carousel Nav Controls -->
+              <div class="polaroid-carousel-controls">
+                <button class="polaroid-nav-btn prev-btn" id="day4-prev-btn" aria-label="Previous Media">‹</button>
+                <div class="polaroid-dots" id="day4-dots">
+                  <span class="p-dot active"></span>
+                  <span class="p-dot"></span>
+                  <span class="p-dot"></span>
+                  <span class="p-dot"></span>
+                </div>
+                <button class="polaroid-nav-btn next-btn" id="day4-next-btn" aria-label="Next Media">›</button>
+              </div>
+            </div>
+
+            <p class="page-desc">We ride a motorcycle together to a food park near Davilan It wasn't some fancy, expensive restaurant but it was just us, eating together and feeling the breeze. But somehow, that became one of my most cherished memories nung nagpunta ka here.</p>
+          </div>
+
+          <!-- Day 5 -->
+          <div class="scrap-page" id="scrap-page-day5">
+            <div class="day-page-header">
+              <h3 class="page-headline">Cooking Your Favorite Adobo</h3>
+              <span class="page-date-badge">June 2026 &bull; Nash's Kitchen</span>
+            </div>
+            
+            <div class="adobo-kitchen-card">
+              <div class="adobo-header">
+                <h4>MISSION: Feed Iyah Before Departure</h4>
+                <p>Tap each ingredient to drop it into the pan:</p>
+              </div>
+
+              <div class="ingredient-shelf" id="ingredientShelf">
+                <button class="ingredient-item" data-ingredient="chicken">
+                  <span class="ing-icon">🍗</span>
+                  <span class="ing-name">Chicken / Meat</span>
+                </button>
+                <button class="ingredient-item" data-ingredient="garlic">
+                  <span class="ing-icon">🧄</span>
+                  <span class="ing-name">Garlic & Onion</span>
+                </button>
+                <button class="ingredient-item" data-ingredient="toyo_suka">
+                  <span class="ing-icon">🍶</span>
+                  <span class="ing-name">Toyo + Suka</span>
+                </button>
+                <button class="ingredient-item" data-ingredient="bayleaf">
+                  <span class="ing-icon">🌿</span>
+                  <span class="ing-name">Bay Leaves & Love</span>
+                </button>
+              </div>
+
+              <div class="cooking-pan-area">
+                <div class="cooking-pan" id="cookingPan">
+                  <div class="pan-inner" id="panContent">
+                    <span class="pan-placeholder">Pan is waiting for ingredients...</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="adobo-result-banner" id="adoboSuccessBanner" style="display: none;">
+                <div class="adobo-badge">✨ 100% IYAH APPROVED ✨</div>
+                <h5>Adobo is Ready!</h5>
+                <p>Lu is to na ang adobo ni IYAHBELLS HAHAHAHA</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 6 -->
+          <div class="scrap-page" id="scrap-page-day6">
+            <div class="day-page-header">
+              <h3 class="page-headline">Living in the Moment</h3>
+              <span class="page-date-badge">June 2, 2026 &bull; Sweet Farewell</span>
+            </div>
+
+            <!-- Swipeable Polaroid Media Carousel (2 Photos + 5 Videos) -->
+            <div class="polaroid-frame polaroid-carousel" id="day6-carousel-frame">
+              <div class="polaroid-img-box" id="day6-media-box">
+                <img id="day6-photo" src="assets/photos/offcam.jpg" alt="Memories in the Moment" loading="lazy">
+              </div>
+              <div class="polaroid-caption" id="day6-caption">
+                Offcam candid memories ♡
+              </div>
+
+              <!-- Carousel Nav Controls -->
+              <div class="polaroid-carousel-controls">
+                <button class="polaroid-nav-btn prev-btn" id="day6-prev-btn" aria-label="Previous Media">‹</button>
+                <div class="polaroid-dots" id="day6-dots">
+                  <!-- Generated dynamically via JS -->
+                </div>
+                <button class="polaroid-nav-btn next-btn" id="day6-next-btn" aria-label="Next Media">›</button>
+              </div>
+            </div>
+
+            <p class="page-desc">Na realize natin na we didnt take as many photos or videos as we could nung magkasam us pero i really think na i dont regret it kasi we were so busyyy actually living the moment nung magkasama tayo and that was enough for me maybe next time well have more photos and videos but for now im just happy na we were able to enjoy each other without worrying about capturing every single moment.</p>
+          </div>
+
+        </div>
+
+        <div class="layer-action-footer">
+          <button class="next-layer-btn" data-target-layer="5">
+            Continue to Chapter 5
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- LAYER 5: CHAPTER 5 — WHO IS FUNNIER?                       -->
+    <!-- ========================================================== -->
+    <section id="layer-5" class="box-layer locked" data-layer-index="5">
+      <div class="scrapbook-card couple-question-card">
+        <div class="washi-tape tape-top-center"></div>
+
+        <div class="layer-header-rich">
+          <div class="header-left">
+            <span class="layer-pill">Chapter 05</span>
+            <span class="layer-date">Quick Question</span>
+          </div>
+          <div class="header-stamp-tag">Funny Check</div>
+        </div>
+
+        <div class="question-main-box">
+          <h2 class="question-heading">Sinong mas funny sating dalawa? 🤨</h2>
+          <p class="question-caption">Honest answer only boi, bawal magsinungaling HAHAHA:</p>
+        </div>
+
+        <!-- Clean Interactive Choice Arena -->
+        <div class="couple-choice-arena" id="funnyArena">
+          <button class="choice-pill-btn nash-pill-btn" id="funnyNashBtn">
+            Nash (Syempre)
+          </button>
+          <button class="choice-pill-btn iyah-pill-btn" id="funnyIyahBtn">
+            Iyah
+          </button>
+        </div>
+
+        <!-- Victory Result Card -->
+        <div class="funny-result-banner" id="funnyNashResult" style="display: none;">
+          <img src="assets/stickers/hamster_laugh.png" alt="Laughing Hamster" class="funny-hamster-img">
+          <h4>HAHAHAHA mas Funny ako sayo boi wag mo na ipilit! 😭😂</h4>
+          <p>Tanggapin mo na ang katotohanan! Proud certified funny boyfriend here 😎</p>
+          
+          <div class="layer-action-footer" style="margin-top: 18px;">
+            <button class="next-layer-btn" data-target-layer="6">
+              Continue to Trivia Quiz
+            </button>
+          </div>
+        </div>
+
+        <div class="card-footer-deco">
+          <img src="assets/stickers/keroppi.png" alt="Keroppi" class="footer-sticker-keroppi float-anim">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- LAYER 6: TRIVIA QUIZ — HOW WELL DO YOU KNOW US?            -->
+    <!-- ========================================================== -->
+    <section id="layer-6" class="box-layer locked" data-layer-index="6">
+      <div class="scrapbook-card quiz-theme">
+        <div class="washi-tape tape-top-center"></div>
+
+        <div class="layer-header-rich">
+          <div class="header-left">
+            <span class="layer-pill">Chapter 06</span>
+            <span class="quiz-progress-text" id="quizCounter">Question 1 of 8</span>
+          </div>
+          <div class="header-stamp-tag">Relationship Trivia</div>
+        </div>
+
+        <h2 class="layer-title">How Well Do You Know Us?</h2>
+        <p class="layer-subtitle">A totally serious relationship test for the two of us.</p>
+
+        <!-- Quiz Container -->
+        <div class="quiz-box" id="quizContainer">
+          <div class="quiz-question-card">
+            <h3 class="quiz-question-title" id="quizQuestionText">Loading question...</h3>
+            <div class="quiz-options-list" id="quizOptionsList">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Feedback Card -->
+          <div class="quiz-feedback-card" id="quizFeedbackCard" style="display: none;">
+            <div class="feedback-badge" id="feedbackBadge">CORRECT</div>
+            <p class="feedback-message" id="feedbackMessage">Blocky avatars running around MOA Seaside forever!</p>
+            <button class="primary-btn" id="quizNextBtn">Next Question</button>
+          </div>
+
+          <!-- Quiz Summary -->
+          <div class="quiz-summary-card" id="quizSummaryCard" style="display: none;">
+            <div id="quizGradeBadgeContainer"></div>
+            <img src="assets/stickers/hamster_tongue.png" alt="Quiz Result" class="summary-hamster-img" id="quizSummarySticker">
+            <h3 id="quizSummaryTitle">Quiz Completed!</h3>
+            <p class="quiz-score-highlight" id="quizScoreText">You scored 5 out of 5!</p>
+            <p class="summary-sub" id="quizSummaryDesc">Kahit ano pang score mo, ikaw pa rin ang paborito kong tao sa buong mundo ♡</p>
+            
+            <div class="layer-action-footer" style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+              <button class="secondary-btn" id="quizRetakeBtn" style="display: none;">
+                🔄 Retake Quiz
+              </button>
+              <button class="next-layer-btn" data-target-layer="7">
+                Continue to Chapter 7
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer-deco">
+          <img src="assets/stickers/hello_kitty_standing.png" alt="Hello Kitty" class="footer-sticker-hk-standing wobble-anim">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- LAYER 7: OUR REAL STORY — HONESTY & VULNERABILITY          -->
+    <!-- ========================================================== -->
+    <section id="layer-7" class="box-layer locked" data-layer-index="7">
+      <div class="scrapbook-card journal-theme">
+        <div class="washi-tape tape-top-left"></div>
+
+        <div class="layer-header-rich">
+          <div class="header-left">
+            <span class="layer-pill">Chapter 07</span>
+            <span class="layer-date">The Real Us</span>
+          </div>
+          <div class="header-stamp-tag">Our True Story</div>
+        </div>
+
+        <h2 class="layer-title">Our Imperfect, Beautiful Story</h2>
+        <p class="layer-subtitle">Behind the laughter, the games, and the distance.</p>
+
+        <div class="journal-entries-list" id="realStoryEntries">
+          <!-- Rendered via JS from data.js -->
+        </div>
+
+        <div class="card-footer-deco">
+          <img src="assets/stickers/cinnamoroll.png" alt="Cinnamoroll" class="footer-sticker-cinna float-anim">
+          <img src="assets/stickers/pompompurin.png" alt="Pompompurin" class="footer-sticker-purin">
+        </div>
+
+        <div class="layer-action-footer">
+          <button class="next-layer-btn" data-target-layer="8">
+            Read Final Letter
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- LAYER 8: THE FINAL WAX-SEALED LETTER & OUTRO               -->
+    <!-- ========================================================== -->
+    <section id="layer-8" class="box-layer locked" data-layer-index="8">
+      <div class="envelope-outer-container">
+        
+        <!-- Envelope Card -->
+        <div class="envelope-card" id="envelopeCard">
+          <div class="envelope-flap" id="envelopeFlap"></div>
+          <div class="wax-seal" id="waxSealBtn" role="button" tabindex="0" aria-label="Open letter">
+            <span class="seal-text">N ♡ I</span>
+          </div>
+          <div class="envelope-front">
+            <span class="envelope-label">For My Favorite Person In The World ♡</span>
+            <span class="envelope-prompt">Tap the wax seal to open Nash's letter</span>
+          </div>
+        </div>
+
+        <!-- Unfolded Letter Paper -->
+        <div class="letter-paper" id="unfoldedLetterPaper" style="display: none;">
+          <img src="assets/stickers/mymelody.png" alt="My Melody" class="deco-sticker letter-melody-corner">
+          
+          <div class="letter-header">
+            <span class="letter-greeting">To My Dearest Iyah,</span>
+          </div>
+
+          <div class="letter-body-content" id="letterBodyText">
+            <!-- Letter content rendered from data.js -->
+          </div>
+
+          <div class="letter-divider">
+            <span class="divider-bow">🎀</span>
+          </div>
+
+          <!-- Outro -->
+          <div class="outro-quiet-box">
+            <h3 class="outro-headline">19 Months & Counting</h3>
+            <div class="outro-lines">
+              <p>19 months.</p>
+              <p>1 year and 7 months.</p>
+              <p>A random Roblox game.</p>
+              <p>A lot of laughs, memories, and late-night calls.</p>
+              <p>A few arguments, but countless reasons to stay.</p>
+              <p>And somehow... we're still here, holding on tighter than ever.</p>
+              <br>
+              <p><strong>Happy 19th monthsary, Love Love.</strong></p>
+              <p><em>Araw-araw kitang pipiliin.</em></p>
+            </div>
+            <div class="outro-signature">— Nash ♡</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Clean Subtle Rage Bait Secret -->
+  <aside class="easter-eggs-container">
+    <button class="easter-egg-btn rage-bait-btn" id="rageBaitBtn">
+      Do Not Click
+    </button>
+  </aside>
+
+  <!-- Toast Notification Modal -->
+  <div class="toast-popup" id="toastPopup" role="alert" aria-live="polite">
+    <div class="toast-content" id="toastMessage">Message</div>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="assets/music/bgm1.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
