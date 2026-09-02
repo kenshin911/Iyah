@@ -1001,8 +1001,8 @@
     const audioEl = document.getElementById('bgAudio');
     if (!DOM.musicToggleBtn) return;
 
-    // Apply default comfortable background volume (0.3 = 30%)
-    const defaultVol = RELATIONSHIP_DATA.musicSettings?.volume ?? 0.3;
+    // Apply default comfortable background volume (0.15 = 15%)
+    const defaultVol = RELATIONSHIP_DATA.musicSettings?.volume ?? 0.15;
     if (audioEl) {
       audioEl.volume = Math.max(0.05, Math.min(1.0, defaultVol));
     }
@@ -1016,7 +1016,7 @@
         DOM.musicToggleBtn.classList.add('active');
 
         if (audioEl) {
-          audioEl.volume = Math.max(0.05, Math.min(1.0, RELATIONSHIP_DATA.musicSettings?.volume ?? 0.3));
+          audioEl.volume = Math.max(0.05, Math.min(1.0, RELATIONSHIP_DATA.musicSettings?.volume ?? 0.15));
           audioEl.play().catch(() => {
             startAmbientSynth();
           });

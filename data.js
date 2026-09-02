@@ -19,10 +19,10 @@ const RELATIONSHIP_DATA = {
   monthsaryCount: "19th",
   relationshipLength: "1 year and 7 months",
   
-  // Music Settings (Volume from 0.0 to 1.0 — 0.3 is soft & gentle)
+  // Music Settings (Volume from 0.0 to 1.0 — 0.15 is super soft & comfortable)
   musicSettings: {
     audioPath: "assets/music/bgm1.mp3",
-    volume: 0.3
+    volume: 0.15
   },
   
   // Timeline Milestones
